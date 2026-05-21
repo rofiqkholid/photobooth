@@ -29,9 +29,8 @@
             frame2: {
                 src: '/bingkai/2.png',
                 slots: [
-                    { x: 440, y: 695, w: 1285, h: 836 },
-                    { x: 440, y: 1531, w: 1285, h: 836 },
-                    { x: 440, y: 2367, w: 1285, h: 838 }
+                    { x: 454, y: 709, w: 1213, h: 1216 },
+                    { x: 454, y: 1974, w: 1213, h: 1215 }
                 ]
             }
         }
@@ -114,6 +113,11 @@
         // Clear background image on camera screen so the feed is clean
         frameOverlay.style.backgroundImage = '';
         
+        // Update instruction text with dynamic photo count
+        const activeFrame = config.frameTemplates[selectedFrameId];
+        const numPhotos = activeFrame.slots.length;
+        document.getElementById('photo-count-text').textContent = numPhotos + ' foto';
+        
         showScreen('capture');
         await startWebcam();
     });
@@ -155,8 +159,18 @@
     }
 
     function resetThumbnails() {
+        const activeFrame = config.frameTemplates[selectedFrameId];
+        const numPhotos = activeFrame.slots.length;
+        
         for (let i = 0; i < 3; i++) {
             const thumb = document.getElementById('thumb-' + i);
+            if (i >= numPhotos) {
+                thumb.style.display = 'none';
+                continue;
+            } else {
+                thumb.style.display = '';
+            }
+            
             thumb.className = 'w-24 h-18 lg:w-28 lg:h-21 rounded-none bg-white border-2 border-dashed border-slate-300 overflow-hidden flex items-center justify-center relative shadow-sm transition-all duration-300 thumb';
             const img = thumb.querySelector('img');
             if (img) img.remove();
@@ -237,9 +251,12 @@
         runPhotoshootSequence();
     });
 
-    // Sequential 3-photo shooter
+    // Sequential photo shooter
     async function runPhotoshootSequence() {
-        for (let i = 0; i < 3; i++) {
+        const activeFrame = config.frameTemplates[selectedFrameId];
+        const numPhotos = activeFrame.slots.length;
+        
+        for (let i = 0; i < numPhotos; i++) {
             // Countdown phase: 10 seconds for each photo
             const countdownTime = 10;
             await runCountdown(countdownTime);
@@ -249,8 +266,8 @@
             playShutterSound();
             captureSnapshot(i);
             
-            // Brief pause to let user see flash/thumbnail update before starting next 10s countdown
-            if (i < 2) {
+            // Brief pause to let user see flash/thumbnail update before starting next countdown
+            if (i < numPhotos - 1) {
                 await delay(1000);
             }
         }
@@ -371,7 +388,7 @@
             ]);
             
             // 1. Draw Photos under the frame
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < activeFrame.slots.length; i++) {
                 const img = loadedImages[i];
                 const slot = activeFrame.slots[i];
                 drawImageProp(ctx, img, slot.x, slot.y, slot.w, slot.h);

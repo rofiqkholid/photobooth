@@ -119,14 +119,14 @@
     </div>
 
     <!-- Header -->
-    <header class="px-6 py-5 md:px-12 flex justify-between items-center border-b border-slate-200/60 bg-white/40 backdrop-blur-md z-10 relative">
-        <div class="flex items-center gap-3">
-            <img src="{{ asset('logo/mosafe-logo.png') }}" alt="MoSafe Logo" class="h-8 md:h-10 w-auto object-contain">
-            <span class="text-xl md:text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">Photobooth</span>
-            <span class="w-2.5 h-2.5 bg-pink-500 rounded-full"></span>
+    <header class="px-4 py-4 md:px-12 md:py-5 flex justify-between items-center border-b border-slate-200/60 bg-white/40 backdrop-blur-md z-10 relative">
+        <div class="flex items-center gap-2 md:gap-3">
+            <img src="{{ asset('logo/mosafe-logo.png') }}" alt="MoSafe Logo" class="h-7 md:h-10 w-auto object-contain">
+            <span class="text-lg md:text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">Photobooth</span>
+            <span class="w-2.5 h-2.5 bg-pink-500 rounded-full hidden sm:inline-block"></span>
         </div>
-        <div class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3.5 py-1.5 rounded-none flex items-center gap-1.5">
-            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+        <div class="text-[10px] md:text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2.5 py-1 md:px-3.5 md:py-1.5 rounded-none flex items-center gap-1 md:gap-1.5">
+            <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-emerald-500 rounded-full animate-pulse"></span>
             Siap Digunakan
         </div>
     </header>
