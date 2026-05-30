@@ -257,8 +257,8 @@
         const numPhotos = activeFrame.slots.length;
         
         for (let i = 0; i < numPhotos; i++) {
-            // Countdown phase: 10 seconds for each photo
-            const countdownTime = 10;
+            // Countdown phase: 5 seconds for each photo
+            const countdownTime = 5;
             await runCountdown(countdownTime);
             
             // Capture phase

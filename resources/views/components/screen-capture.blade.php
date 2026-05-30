@@ -1,7 +1,7 @@
 <!-- SCREEN 3: CAMERA CAPTURE -->
 <div class="glass-card w-full bg-white/70 backdrop-blur-xl border border-white/80 rounded-none p-5 sm:p-8 md:p-12 flex flex-col items-center text-center transition-all duration-500" id="screen-capture">
     <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 mb-1 sm:mb-2 bg-gradient-to-r from-slate-950 to-slate-700 bg-clip-text text-transparent">Pose Terbaikmu!</h2>
-    <p class="text-xs sm:text-base text-slate-500 mb-4 sm:mb-6 max-w-md">Siapkan senyum terbaikmu! Kita akan mengambil <strong class="text-sky-500" id="photo-count-text">3 foto</strong> berturut-turut dengan jeda waktu 10 detik.</p>
+    <p class="text-xs sm:text-base text-slate-500 mb-4 sm:mb-6 max-w-md">Siapkan senyum terbaikmu! Kita akan mengambil <strong class="text-sky-500" id="photo-count-text">3 foto</strong> berturut-turut dengan jeda waktu 5 detik.</p>
     
     <!-- Flex Container for Side-by-Side Layout on large screens -->
     <div class="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 w-full mt-2 sm:mt-4">
@@ -28,7 +28,7 @@
             
             <!-- Countdown Display -->
             <div class="absolute inset-0 bg-slate-950/40 items-center justify-center z-40" id="countdown-overlay" style="display: none;">
-                <span class="text-7xl sm:text-9xl font-black text-white" id="countdown-number">10</span>
+                <span class="text-7xl sm:text-9xl font-black text-white" id="countdown-number">5</span>
             </div>
             
             <!-- Flash Effect -->
